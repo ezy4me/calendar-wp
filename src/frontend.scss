@@ -1,0 +1,142 @@
+* {
+  font:
+    16px "Inter",
+    sans-serif;
+  box-sizing: border-box; /* Убедитесь, что отступы и границы учитываются в ширине элементов */
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: scroll; /* Обеспечивает горизонтальную прокрутку */
+}
+
+.transport-calendar {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px; /* Закругление углов таблицы */
+  overflow: scroll; /* Обеспечивает горизонтальную прокрутку */
+  width: 100%; /* Ширина контейнера на 100% */
+  max-width: 100%; /* Убедитесь, что контейнер не выходит за границы экрана */
+}
+
+.transport-calendar thead th,
+.transport-calendar tbody td {
+  text-align: center;
+}
+
+.transport-calendar thead th {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 15px;
+  background: #429cf3;
+  border-right: 1px solid #e9e9e9; /* Внутренние границы для th */
+  color: #ffffff;
+  min-width: 80px;
+}
+
+.transport-calendar thead tr th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.transport-calendar thead tr th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.transport-calendar tbody td {
+  text-align: center;
+  padding: 10px 15px;
+  border-top: 1px solid #e9e9e9; /* Внутренние границы для td */
+  border-left: 1px solid #e9e9e9; /* Внутренние границы для td */
+}
+
+.transport-calendar tbody td:first-child {
+  border-left: 0;
+}
+
+.transport-calendar tbody tr:nth-child(even) {
+  background: #f3f3f3;
+}
+
+.transport-calendar tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.transport-calendar tbody tr td:first-child {
+  border-radius: 0 0 0 0;
+}
+
+.transport-calendar tbody tr td:last-child {
+  border-radius: 0 0 0 0;
+}
+
+.transport-calendar tr {
+  border-bottom: 1px solid #e9e9e9; /* Граница между строками */
+}
+
+.booking-cell {
+  position: relative;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  border-left: 1px solid #e9e9e9;
+  background: inherit; /* Наследуем фоновый цвет из основного элемента */
+}
+
+.booking-cell:has(.is-continuous) {
+  border-left: none;
+}
+
+.booking-cell .content {
+  z-index: 1; /* Слой выше, чтобы текст был над фоном */
+}
+
+.booking-cell .is-continuous {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none; /* Делает элемент прозрачным для событий указателя */
+}
+
+.booking-cell:hover {
+  opacity: 0.8; /* Применяет opacity ко всем дочерним элементам */
+
+}
+
+.booking-cell:hover .is-continuous {
+  opacity: 0.6; /* Устанавливаем такую же opacity для .is-continuous */
+  pointer-events: auto; /* Включаем события на элементе во время hover */
+}
+
+.booking-cell, .cell {
+  position: relative;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  border-right: 1px solid #e9e9e9;
+}
+
+.booking-cell, .cell {
+  position: relative;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  border-right: 1px solid #e9e9e9;
+  background: inherit; /* Наследуем фоновый цвет из основного элемента */
+}
+
+.booking-cell.selected, .cell.selected {
+  background: #adf; /* Цвет выделения */
+}
+
+.cell {
+  user-select: none;
+  border: 1px solid #e9e9e9;
+}
+
+.cell.selected {
+  background: #adf; /* Цвет выделения для пустых ячеек */
+}
